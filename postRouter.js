@@ -28,7 +28,12 @@ router.post('/', jsonParser, (req, res) => {
       return res.status(400).send(message);
     }
   }
-  const item = BlogPosts.create(req.body.name, req.body.content, req.body.author);
+  const item = BlogPosts.create(
+    req.body.title, 
+    req.body.content, 
+    req.body.author, 
+    req.body.publishDate
+    );
   res.status(201).json(item);
 });
 
@@ -57,13 +62,14 @@ router.put('/:id', jsonParser, (req, res) => {
     return res.status(400).send(message);
   }
   console.log(`Updating blog post item \`${req.params.id}\``);
-  BlogPosts.update({
+  const item = BlogPosts.update({
     id: req.params.id,
     title: req.body.title,
     content: req.body.content,
-    author: req.body.author
+    author: req.body.author,
+    publishDate: req.body.publishDate || Date.now()
   });
-  res.status(204).end();
+  res.status(200).json(item);
 });
 
 module.exports = router;
