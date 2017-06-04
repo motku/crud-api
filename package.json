@@ -19,13 +19,15 @@
   "homepage": "https://github.com/motku/crud-api#readme",
   "dependencies": {
     "body-parser": "^1.17.1",
-    "express": "^4.15.2",
+    "express": "^4.15.3",
+    "mongoose": "^4.10.2",
     "morgan": "^1.8.1",
     "uuid": "^3.0.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
-    "mocha": "^3.4.1"
+    "mocha": "^3.4.1",
+    "node-repl": "^2.0.2"
   }
 }
